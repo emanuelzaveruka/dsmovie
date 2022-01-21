@@ -1,6 +1,9 @@
 package com.emanuelzaveruka.dsmovie.dto;
 
 import com.emanuelzaveruka.dsmovie.entities.Movie;
+import com.emanuelzaveruka.dsmovie.entities.Score;
+
+import java.util.Set;
 
 public class MovieDTO {
 
@@ -8,7 +11,7 @@ public class MovieDTO {
 
     private String title;
 
-    private Double score;
+    private Set<Score> score;
 
     private Integer count;
 
@@ -18,7 +21,7 @@ public class MovieDTO {
 
     }
 
-    public MovieDTO(Long id, String title, Double score, Integer count, String image) {
+    public MovieDTO(Long id, String title, Set<Score> score, Integer count, String image) {
         this.id = id;
         this.title = title;
         this.score = score;
@@ -29,7 +32,7 @@ public class MovieDTO {
     public MovieDTO(Movie movie) {
         id = movie.getId();
         title = movie.getTitle();
-        score = movie.getScore();
+        score = movie.getScores();
         count = movie.getCount();
         image = movie.getImage();
     }
@@ -50,11 +53,11 @@ public class MovieDTO {
         this.title = title;
     }
 
-    public Double getScore() {
+    public Set<Score> getScore() {
         return score;
     }
 
-    public void setScore(Double score) {
+    public void setScore(Set<Score> score) {
         this.score = score;
     }
 
